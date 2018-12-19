@@ -13,15 +13,29 @@
 
 #### 安装教程
 
-1. 如何运行django服务端
-2. xxxx
-3. xxxx
+1. 如何运行django服务端:
+    建立你的虚拟环境，按照requirements.txt将所有第三方包安装好
+    pip install -r requirements.txt
+    我在开发中使用的是MySQL，当然你也可以使用自带的开发数据库db.sqlite3
+        无论你选择什么数据库，不要忘记迁移数据
+        python manage.py makemigration
+        python manage.py migrate
+    运行你的django服务
+    python manage.py runserver
+2. 如何运行nodejs服务端
+    在包含文件 websocket_server.js 的目录下
+    node websocket_server.js (注意：你需要在运行之前安装好nodejs的开发环境)
+3. 如何运行vue客户端
+    在vue_websocket_chat_app目录下
+    npm install (如果你在国内，你可能需要使用cnpm install)
+    确保没有报错后
+    npm run dev
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. 确保你的所有无法都运行正常，如果有报错请先解决，或者联系我。
+2. 浏览器访问 http://127.0.0.1:8090/#/login 登录(无账号需要注册,注意这里手机号可以随意输入，例如17312345601等)
+3. 开始你的使用
 
 #### 参与贡献
 
@@ -30,12 +44,3 @@
 3. 提交代码
 4. 新建 Pull Request
 
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

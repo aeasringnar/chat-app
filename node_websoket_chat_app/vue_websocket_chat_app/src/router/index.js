@@ -17,11 +17,11 @@ var router = new Router({
       name: 'register',
       component: () => import('@/views/baseview/register')
     },
-    {
-      path: '/useraccount',
-      name: 'useraccount',
-      component: () => import('@/views/baseview/useraccount')
-    },
+    // {
+    //   path: '/useraccount',
+    //   name: 'useraccount',
+    //   component: () => import('@/views/baseview/useraccount')
+    // },
     {
       path: '/chating',
       name: 'chating',
@@ -73,7 +73,8 @@ var router = new Router({
   ]
 })
 
-const whiteList = ['/login','/register','/','/chatview','/friendsview','/chating','/userinfoview','/friendinfoview','/addfriend','/addfriendtrue','/addfriendagree']  // 路由白名单，不需要登录的路由放在这里面
+const whiteList = ['/login','/register']  // 路由白名单，不需要登录的路由放在这里面
+// ,'/','/chatview','/friendsview','/chating','/userinfoview','/friendinfoview','/addfriend','/addfriendtrue','/addfriendagree'
 // const router_list = ['/register']
 // // 路由判断。登录验证,如果没有登录，就全部定向到login界面。token就正常访问
 router.beforeEach((to,from,next) => {
@@ -88,7 +89,7 @@ router.beforeEach((to,from,next) => {
 //   })
   if (store.state.user_token) {
     if (to.path === '/login' || to.path === '/register') { // 如果当前用户输入的是登录路由，那么就定向到 /useraccount 路由
-      next('/useraccount')
+      next('/userinfoview')
     } else {
       if (!store.state.nickname) { // 判断用户信息是否存在，不存在就拉取用户信息
         store.dispatch('GetInfo').then(res => { // 拉取用户信息
