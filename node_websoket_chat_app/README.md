@@ -1,0 +1,6 @@
+一个给予nodejs的websocket聊天程序
+
+如何运行？
+先运行服务端node websocket_server.js
+
+然后打开client.html 和client_2.html；先点击链接websocket，然后输入login发送消息到websocket进行登录，然后两个html之间就可以实时通讯了。
