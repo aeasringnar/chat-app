@@ -1,1 +1,1 @@
-一个基于django的聊天程序后端api工程
+这是基于django的http后端服务

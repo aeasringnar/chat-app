@@ -13,8 +13,8 @@
 
 #### 安装教程
 
-1. 如何运行django服务端:
-    建立你的虚拟环境，按照requirements.txt将所有第三方包安装好
+1. 如何运行django服务端(这里执行的命令需要在chat_app目录下执行):
+    建立你的虚拟环境，按照requirements.txt将所有第三方包安装好，
     pip install -r requirements.txt
     我在开发中使用的是MySQL，当然你也可以使用自带的开发数据库db.sqlite3
         无论你选择什么数据库，不要忘记迁移数据
@@ -23,7 +23,7 @@
     运行你的django服务
     python manage.py runserver
 2. 如何运行nodejs服务端
-    在包含文件 websocket_server.js 的目录下
+    在包含文件 websocket_server.js 的目录下(node_websoket_chat_app目录下)
     node websocket_server.js (注意：你需要在运行之前安装好nodejs的开发环境)
 3. 如何运行vue客户端
     在vue_websocket_chat_app目录下
