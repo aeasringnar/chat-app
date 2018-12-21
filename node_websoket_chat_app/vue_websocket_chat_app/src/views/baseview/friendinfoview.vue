@@ -22,7 +22,7 @@
                 <li>邮箱：{{user_data.email}}</li>
             </ul>
         </div>
-        <div class="loginb" @click="to_chating(user_data.id)">发消息</div>
+        <div class="loginb" @click="to_chating(user_data.id,user_data.nickname)">发消息</div>
     </div>
 </template>
 
@@ -58,8 +58,8 @@
             to_back(){
                 this.$router.go(-1)
             },
-            to_chating(id) {
-                this.$router.push({ name: 'chating',params:{ friend_id: id }})
+            to_chating(id, nickname) {
+                this.$router.push({ name: 'chating',params:{ friend_id: id, nickname: nickname }})
             }
         },
         created: function() {

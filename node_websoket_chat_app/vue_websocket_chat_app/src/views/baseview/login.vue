@@ -100,10 +100,10 @@
                             console.log('获取用户信息成功')
                             this.get_websocket(store.state.user_id)
                             this.$router.push({ name: 'chatview'})
-                        }).catch(() => {
+                        }).catch((error) => {
                             alert(error)
                         })
-                    }).catch(() => {
+                    }).catch((error) => {
                         alert(error)
                     })
                 }

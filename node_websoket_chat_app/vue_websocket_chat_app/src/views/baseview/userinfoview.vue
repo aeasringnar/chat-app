@@ -42,7 +42,7 @@
             logo_out () {
                 this.$store.dispatch('FedLogOut').then(() => {
                     console.log('退出登录成功!')
-                    // window.s.close()
+                    window.s.close()
                     this.$router.push({ name: 'login'})
                 }).catch((error) => {
                     console.log(error)

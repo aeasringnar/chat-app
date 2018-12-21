@@ -41,7 +41,7 @@
                 msg: 'chating',
                 send_msg:'',
                 friend_id: this.$route.params.friend_id,
-                nickname:''
+                nickname: this.$route.params.nickname
             }
         },
         methods: {

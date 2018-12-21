@@ -23,6 +23,8 @@ var server = ws.createServer(function (conn) {
                     }
                 }
                 if(is_friend_online) {
+                    console.log('friend_index')
+                    console.log(friend_index)
                     AllUserData[friend_index].ws.sendText(JSON.stringify(msg_obj))
                 } else {
                     console.log('发现对方不在线，保存为历史消息')
@@ -67,6 +69,7 @@ var server = ws.createServer(function (conn) {
                     AllUserData[user_index].user_status = 1
                     AllUserData[user_index].ws = conn
                     console.log('用户重新登录成功')
+                    console.log('index:',user_index,'user_id:',msg_obj.user_id)
                     conn.sendText(JSON.stringify({msg:'登录成功'}))
                     // 查询是否存在历史消息，如果存在那么就发送给用户
                     for(var j in HistoryMsg) {
@@ -95,6 +98,7 @@ var server = ws.createServer(function (conn) {
                     }
                     AllUserData.push(new_user_obj)
                     console.log('新用户登录成功')
+                    console.log('index:',(AllUserData.length - 1),'user_id:',msg_obj.user_id)
                     conn.sendText(JSON.stringify({msg:'登录成功'}))
                     for(var j in HistoryMsg) {
                         if(HistoryMsg[j].friend_id == msg_obj.user_id && HistoryMsg[j].msg_status == 1) {

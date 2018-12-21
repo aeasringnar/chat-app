@@ -1,6 +1,6 @@
 <template>
     <div class="icontent">
-        <div class="my-chat-item" v-for="msg_item in $store.state.all_mag_data" @click="to_chating(msg_item.friend_id)">
+        <div class="my-chat-item" v-for="msg_item in $store.state.all_mag_data" @click="to_chating(msg_item.friend_id,msg_item.nickname)">
             <div class="my-chat-ico">
                 <img src="../../static/icon/icon-login@3x.png" alt="用户头像">
             </div>
@@ -45,8 +45,8 @@
             to_chating(id) {
                 this.$router.push({ name: 'chating',params:{ friend_id: id }})
             },
-            to_addfriendagree(id) {
-                this.$router.push({ name: 'addfriendagree',params:{ friend_id: id }})
+            to_addfriendagree(id,nickname) {
+                this.$router.push({ name: 'addfriendagree',params:{ friend_id: id, nickname: nickname }})
             }
         },
         created: function() {
