@@ -37,7 +37,7 @@
             },
             get_websocket(user_id) {
                 /*创建socket连接*/
-                var socket = new WebSocket("ws://192.168.1.133:8801");
+                var socket = new WebSocket("ws://127.0.0.1:8801");
                 socket.onopen = function (e) {
                     console.log('WebSocket open!');//成功连接上Websocket
                     var msg_obj = {

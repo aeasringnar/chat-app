@@ -11,4 +11,4 @@ class UserFriendSerializer(serializers.ModelSerializer):
     friend = UserSerializer() # 将外键也序列化成json返回
     class Meta:
         model = UserFriends
-        exclude = ('is_delete')
+        exclude = ('is_delete',)
