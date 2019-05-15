@@ -22,9 +22,15 @@
         python manage.py migrate
     运行你的django服务
     python manage.py runserver
+
 2. 如何运行nodejs服务端
-    在包含文件 websocket_server.js 的目录下(node_websoket_chat_app目录下)
-    node websocket_server.js (注意：你需要在运行之前安装好nodejs的开发环境)
+
+    提前安装好nodejs的开发环境，在包含文件 websocket_server.js 的目录(websocket_serever)下执行
+
+    npm install nodejs-websocket  
+
+    node websocket_server.js
+
 3. 如何运行vue客户端
     在vue_websocket_chat_app目录下
     npm install (如果你在国内，你可能需要使用cnpm install)
@@ -39,8 +45,18 @@
 
 ### 相关演示
 
+注册
+
+![image](https://img-blog.csdnimg.cn/20190515134644583.gif)
+
+添加好友
+
+![](https://img-blog.csdnimg.cn/20190515134631939.gif)
+
+登录、聊天、历史消息
+
 ![image](https://img-blog.csdnimg.cn/20181221205930919.gif)
-![image](https://img-blog.csdnimg.cn/20181221210014156.gif)
+
 #### 参与贡献
 
 1. Fork 本仓库
