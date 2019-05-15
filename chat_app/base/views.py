@@ -16,11 +16,12 @@ from .serializers import *
 import uuid,os,requests, json
 
 
-# 登录的view
+
+
+# 登录视图
 class LoginInfoSerializer(serializers.Serializer):
     username = serializers.CharField()
     password = serializers.CharField()
-
 class Login(generics.GenericAPIView):
     serializer_class = LoginInfoSerializer
     def post(self,request):
@@ -32,27 +33,6 @@ class Login(generics.GenericAPIView):
             data = (serializer.data)
             username = data.get('username')
             password = data.get('password')
-            # if username.find('@') == -1 or username.find('.') == -1:
-            #     phone = username
-            #     email = None
-            # else:
-            #     email = username
-            #     phone = None
-            # phone_re = re.compile(r'^1(3[0-9]|4[57]|5[0-35-9]|7[0135678]|8[0-9])\d{8}$', re.IGNORECASE)
-            # email_re = re.compile(r'^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$', re.IGNORECASE)
-            # user = object
-            # if phone:
-            #     if not phone_re.match(phone):
-            #         return Response({"message": "手机号格式错误", "errorCode": 2, "data": {}})
-            #     user = User.objects.filter(is_delete=False,phone=phone).first()
-            #     if not user:
-            #         return Response({"message": "用户不存在", "errorCode": 2, "data": {}})
-            # if email:
-            #     if not email_re.match(email):
-            #         return Response({"message": "邮箱格式错误", "errorCode": 2, "data": {}})
-            #     user = User.objects.filter(is_delete=False,email=email).first()
-            #     if not user:
-            #         return Response({"message": "用户不存在", "errorCode": 2, "data": {}}) nickname
             user = User.objects.filter(Q(phone=username) | Q(user_account=username) | Q(nickname=username), is_delete=False).first()
             if not user:
                 return Response({"message": "用户不存在", "errorCode": 2, "data": {}})
@@ -69,6 +49,7 @@ class Login(generics.GenericAPIView):
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
 
+# 获取用户账号的方法
 def get_chat_account():
     import random
     first_num = random.choice(['1','2','3','4','5','6','7','8','9'])
@@ -76,11 +57,12 @@ def get_chat_account():
     account = first_num + ''.join(end_num)
     return account
 
+
+# 注册视图
 class UserRegisterSerializer(serializers.Serializer):
     nickname = serializers.CharField()
     password = serializers.CharField()
     phone = serializers.CharField()
-
 class Register(generics.GenericAPIView):
     serializer_class = UserRegisterSerializer
     def post(self,request):
@@ -114,7 +96,6 @@ class Register(generics.GenericAPIView):
             account.user_account = user_account
             # 明文密码
             account.password = password
-            account.birthday = datetime.date.today()
             account.nickname = nickname
             account.save()
             return Response({"message": "ok", "errorCode": 0, "data": {"user_account":user_account}})
@@ -123,6 +104,7 @@ class Register(generics.GenericAPIView):
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
 
+# 获取用户信息视图
 class UserInfo(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self,request):
@@ -139,6 +121,8 @@ class UserInfo(APIView):
             print(e)
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
+
+# 获取好友用户信息视图
 class FriendInfo(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self,request):
@@ -160,6 +144,8 @@ class FriendInfo(APIView):
             print(e)
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
+
+# 用户退出登录视图
 class Logout(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self,request):
@@ -176,6 +162,8 @@ class Logout(APIView):
             print(e)
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
+
+# 获取好友列表视图
 class UserFriendList(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self,request):
@@ -193,9 +181,9 @@ class UserFriendList(APIView):
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
 
+# 添加好友视图
 class AddFriendSerializer(serializers.Serializer):
     friend_id = serializers.IntegerField()
-
 class AddFriend(generics.GenericAPIView):
     authentication_classes = (JWTAuthentication,)
     serializer_class = AddFriendSerializer
@@ -229,6 +217,7 @@ class AddFriend(generics.GenericAPIView):
             return Response({"message": "未知错误", "errorCode": 1, "data": {}})
 
 
+# 搜索好友视图
 class FindFriend(APIView):
     authentication_classes = (JWTAuthentication,)
     def get(self,request):

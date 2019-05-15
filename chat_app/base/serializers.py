@@ -1,21 +1,14 @@
 from rest_framework import serializers
 from .models import *
 
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('id','name','zhname')
-
 class UserSerializer(serializers.ModelSerializer):
-    group = GroupSerializer()
     class Meta:
         model = User
-        fields = ('id','nickname','user_account','phone','user_status','email','gender','password','birthday','info','addr','qq','weixin','group','image_url')
+        exclude = ('is_delete', 'password') # 表示在序列化的时候不会返回password、is_delete字段
 
 class UserFriendSerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
-    friend = UserSerializer()
+    user = UserSerializer()
+    friend = UserSerializer() # 将外键也序列化成json返回
     class Meta:
         model = UserFriends
-        fields = ('id','user','friend')
-
+        fields = ('is_delete')
