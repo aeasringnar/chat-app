@@ -1,4 +1,4 @@
-# my_chat_app
+# chat-app
 
 #### 介绍
 一个基于django、nodejs、vue的websocket实时点对点通讯项目，关键词 QQ、微信、实时聊天、django、vue、nodejs、websocket。
