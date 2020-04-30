@@ -12,7 +12,7 @@
   "dependencies": {
     "aliyun-oss-webpack-plugin": "^2.0.1",
     "axios": "^0.18.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.2.0",
     "muse-ui": "^3.0.1",
     "vue": "^2.5.2",
