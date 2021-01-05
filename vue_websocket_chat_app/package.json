@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "aliyun-oss-webpack-plugin": "^2.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0",
     "muse-ui": "^3.0.1",
