@@ -1,5 +1,5 @@
 Django==2.0.6
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 PyMySQL==0.8.1
 drf-yasg==1.9.0
