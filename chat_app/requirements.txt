@@ -1,4 +1,4 @@
-Django==2.0.6
+Django==2.2.24
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
 PyMySQL==0.8.1
