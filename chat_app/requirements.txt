@@ -6,7 +6,7 @@ drf-yasg==1.9.0
 swagger-spec-validator==2.1.0
 flex==6.13.2
 httpie==0.9.9
-PyJWT==1.6.4
+PyJWT==2.4.0
 gunicorn==19.8.1
 pyotp==2.2.6
 django-redis==4.9.0
